@@ -36,13 +36,12 @@ public class vehiculeapi {
 	
 	@GetMapping(path="/getimage/{id}",produces = MediaType.IMAGE_JPEG_VALUE)
 	public byte[] getImage(@PathVariable("id")int id) throws IOException {
-		return vs.getImage(id);
-		
+		return vs.getImage(id);	
 	}
 	
 	@PostMapping("save")
-	public void ajoutervehicule(@RequestParam("vehicule")String v,@RequestParam("file")MultipartFile m) throws IOException{
-	   vs.ajouterVehicule(v,m);
+	public void ajoutervehicule(@RequestParam("vehicule")Vehicule v,@RequestParam("file")MultipartFile m) throws IOException{
+	   vs.ajouterVehicules(v,m);
 	}
 	
 	@DeleteMapping("/delete/{id}")
@@ -51,7 +50,7 @@ public class vehiculeapi {
 	}
 	
 	@PutMapping("/update")
-	public void updateVehicule(@RequestParam("vehicule")String v,@RequestParam("file")MultipartFile m) throws IOException {
+	public void updateVehicule(@RequestParam("vehicule")Vehicule v,@RequestParam("file")MultipartFile m) throws IOException {
 		ajoutervehicule(v, m);
 	}
 }

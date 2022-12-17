@@ -53,19 +53,19 @@ public class VehiculeService implements IVehiculeService{
 	}
 
 
-	@Override
-	public void ajouterVehicule(String v, MultipartFile mf) throws IOException {
-		// TODO Auto-generated method stub
-            Vehicule ve=new ObjectMapper().readValue(v, 
-				Vehicule.class);
-
-		String image;
-		if(!mf.getOriginalFilename().equals("")) {
-			image = saveImage(mf);
-			ve.setImage(image);
-		}
-		vr.save(ve);
-	}
+//	@Override
+//	public void ajouterVehicule(String v, MultipartFile mf) throws IOException {
+//		// TODO Auto-generated method stub
+//            Vehicule ve=new ObjectMapper().readValue(v, 
+//				Vehicule.class);
+//
+//		String image;
+//		if(!mf.getOriginalFilename().equals("")) {
+//			image = saveImage(mf);
+//			ve.setImage(image);
+//		}
+//		vr.save(ve);
+//	}
 
 	@Override
 	public String saveImage(MultipartFile mf) throws IOException {
@@ -99,13 +99,13 @@ public class VehiculeService implements IVehiculeService{
 	}
 
 	@Override
-	public void ajouterVehicules(Vehicule v, MultipartFile mf) throws IOException {
+	public void ajouterVehicules(Vehicule voiture, MultipartFile mf) throws IOException {
 		String image;
 		if(!mf.getOriginalFilename().equals("")) {
 			image = saveImage(mf);
-			v.setImage(image);
+			voiture.setImage(image);
 		}
-		vr.save(v);
+		vr.save(voiture);
 		
 	}
 }
