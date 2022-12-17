@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.miniprojet.vehicule.entities.Categorie;
 import com.miniprojet.vehicule.repository.CategorieRepository;
 import com.miniprojet.vehicule.service.ICategorieService;
-import com.miniprojet.vehicule.service.VehiculeService;
 
 @Controller
 @RequestMapping("/apicategorie")

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,20 +40,18 @@ public class vehiculeapi {
 		
 	}
 	
-//	@PostMapping("save")
-//	public void ajoutervehicule(@RequestParam("vehicule")String v,@RequestParam("file")MultipartFile m) throws IOException{
-//	  // Vehicule v = new ObjectMapper().readValue(v, Vehicule.class);
-//		Vehicule v = new ObjectMapper().readValue(v, Vehicule.class);
-//	   vs.ajouterVehicule(v,m);
-//	}
+	@PostMapping("save")
+	public void ajoutervehicule(@RequestParam("vehicule")String v,@RequestParam("file")MultipartFile m) throws IOException{
+	   vs.ajouterVehicule(v,m);
+	}
 	
 	@DeleteMapping("/delete/{id}")
 	public void deleteVehicule(@PathVariable("id") int id) throws IOException{
 		vs.supprimerVehicule(id);
 	}
 	
-//	@PutMapping("/update")
-//	public void updateVehicule(@RequestParam("vehicule")String v,@RequestParam("file")MultipartFile m) {
-//		ajoutervehicule(v, m);
-//	}
+	@PutMapping("/update")
+	public void updateVehicule(@RequestParam("vehicule")String v,@RequestParam("file")MultipartFile m) throws IOException {
+		ajoutervehicule(v, m);
+	}
 }

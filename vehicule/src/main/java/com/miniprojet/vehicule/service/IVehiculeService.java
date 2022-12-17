@@ -9,7 +9,8 @@ import com.miniprojet.vehicule.entities.Vehicule;
 
 public interface IVehiculeService {
 
-	public void ajouterVehicule(Vehicule v,MultipartFile mf)throws IOException;
+	public void ajouterVehicule(String v,MultipartFile mf)throws IOException;
+	public void ajouterVehicules(Vehicule v,MultipartFile mf)throws IOException;
 	public void supprimerVehicule(int id)throws IOException;
 	public String saveImage(MultipartFile mf)throws IOException;
 	public void supprimerImage(Integer IdVehicule)throws IOException;

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.miniprojet.vehicule.entities.Vehicule;
 import com.miniprojet.vehicule.repository.CategorieRepository;
 import com.miniprojet.vehicule.service.CategorieService;
@@ -76,8 +78,9 @@ public class VehiculeController {
 	
 	@PostMapping("/ajoutervehicule")
 	public String ajouter(@ModelAttribute Vehicule v,@RequestParam("file") MultipartFile mf, Model m)throws IOException {
+		
 		Integer id=v.getId();
-		vr.ajouterVehicule(v, mf);
+		vr.ajouterVehicules(v, mf);
 		if(id!=null) {
 			return "redirect:/apivehicule/all";
 		}
@@ -88,16 +91,6 @@ public class VehiculeController {
 			return "ajouterVehicule";
 		}
 	}
-//	@PostMapping("/ajoutervehicule")
-//	public String ajouter(Model m, Vehicule v, @RequestParam("categorie") int idc,@RequestParam("id") String idv) {
-//		Categorie c = cr.getCategorie(idc);
-//		v.setCategorie(c);
-//		if(!idv.equals("")) {
-//			v.setId(Integer.parseInt(idv));
-//		}
-//		vr.ajouterVehicule(v);
-//		return "redirect:/apivehicule/all";
-//	}
 
 	@GetMapping("/modifiervehicule/{id}")
 	public String modifierproduit(Model m, @PathVariable("id") int idv ) {
