@@ -20,7 +20,7 @@ import com.miniprojet.vehicule.entities.Vehicule;
 import com.miniprojet.vehicule.service.IVehiculeService;
 
 @RestController
-@RequestMapping("/restapivehicule")
+@RequestMapping("/restapivehicules")
 public class vehiculeapi {
 
 	@Autowired IVehiculeService vs;
