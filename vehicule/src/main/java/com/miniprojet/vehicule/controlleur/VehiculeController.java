@@ -21,7 +21,7 @@ import com.miniprojet.vehicule.service.CategorieService;
 import com.miniprojet.vehicule.service.VehiculeService;
 
 @Controller
-@RequestMapping("/apivehicule")
+@RequestMapping("/apivehicules")
 public class VehiculeController {
 
 	@Autowired CategorieService cr;
